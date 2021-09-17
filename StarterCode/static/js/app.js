@@ -29,7 +29,7 @@ function VariousCharts(sample) {
       hovermode: "closest",
       };
 
-      var Data = [
+      var trace1 = [
       {
         // Use sample_values for the y values, in this case the values are already filtered from sample
         y: values,
@@ -46,11 +46,11 @@ function VariousCharts(sample) {
       }
     ];
 
-    Plotly.plot("bubble", Data, Layout);
+    Plotly.plot("bubble", trace1, Layout);
 
     //  Build the Bar Chart with Plotly
     
-    var barData =[
+    var trace2 =[
       {
         // Use otu_ids as the labels for the bar chart
         // Limit 10 otu_ids and sorted in descending order
@@ -71,7 +71,7 @@ function VariousCharts(sample) {
       title: "Top 10 Bacteria",
     };
 
-    Plotly.newPlot("bar", barData, barLayout);
+    Plotly.newPlot("bar", trace2, barLayout);
   });
 }
    
@@ -87,10 +87,9 @@ function init() {
       menu
         .append("option")
         .text(sample)
-        .property("value", sample);
     });
 
-    // Building the initial plots
+    // Building the initial data display with index 0
     const Sample = DataNames[0];
     VariousCharts(Sample);
     Metadata(Sample);
