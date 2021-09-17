@@ -2,7 +2,7 @@ function Metadata(sample) {
     d3.json("samples.json").then((data) => {
       var metadata= data.metadata;
     //   Utilizing the arrow method to call on the filter function
-    // Use sample_values as the values for the bar chart
+    // Use sample_values as the values for the Demographic Info Table
       var array= metadata.filter(samplevalue => samplevalue.id == sample);
       var result= array[0]
       var selectsample = d3.select("#sample-metadata");
@@ -53,12 +53,15 @@ function VariousCharts(sample) {
       {
         // Use otu_ids as the labels for the bar chart
         // Limit 10 otu_ids and sorted in descending order
-        y:ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse(),
+        y:ids.slice(0, 10).map(otuID => `OTU ID ${otuID}`).reverse(),
         x:values.slice(0,10).reverse(),
         text:labels.slice(0,10).reverse(),
         type:"bar",
         // This will make the bar graph go horizontal
-        orientation:"h"
+        orientation:"h",
+        marker:{
+          color: 'rgb(26,118,255)',
+        }
 
       }
     ];
