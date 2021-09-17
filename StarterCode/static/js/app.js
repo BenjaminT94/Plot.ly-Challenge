@@ -1,6 +1,7 @@
 function Metadata(sample) {
     d3.json("samples.json").then((data) => {
       var metadata= data.metadata;
+    //   Utilizing the arrow method to call on the filter function
       var array= metadata.filter(sampleobject => sampleobject.id == sample);
       var result= array[0]
       var PANEL = d3.select("#sample-metadata");
@@ -24,14 +25,14 @@ function VariousCharts(sample) {
     var ids = result.otu_ids;
     var labels = result.otu_labels;
     var values = result.sample_values;
-    // Build the Bubble Chart
-    var LayoutBubble = {
+    // Build the Bubble Chart with Plotly
+    var Layout = {
       margin: { t: 0 },
       xaxis: { title: "Id's" },
       hovermode: "closest",
       };
 
-      var DataBubble = [
+      var Data = [
       {
         x: ids,
         y: values,
@@ -44,9 +45,9 @@ function VariousCharts(sample) {
       }
     ];
 
-    Plotly.plot("bubble", DataBubble, LayoutBubble);
+    Plotly.plot("bubble", Data, Layout);
 
-    //  Build the Bar Chart
+    //  Build the Bar Chart with Plotly
     
     var bar_data =[
       {
