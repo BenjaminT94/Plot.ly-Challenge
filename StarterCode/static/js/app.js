@@ -53,18 +53,19 @@ function VariousCharts(sample) {
     var barData =[
       {
         // Use otu_ids as the labels for the bar chart
+        // Limit 10 otu_ids and sorted in descending order
         y:ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse(),
         x:values.slice(0,10).reverse(),
         text:labels.slice(0,10).reverse(),
         type:"bar",
+        // This will make the bar graph go horizontal
         orientation:"h"
 
       }
     ];
 
     var barLayout = {
-      title: "Top 10 Bacteria Cultures Found",
-      margin: { t: 30, l: 150 }
+      title: "Top 10 Bacteria",
     };
 
     Plotly.newPlot("bar", barData, barLayout);
