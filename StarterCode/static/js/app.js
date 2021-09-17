@@ -12,8 +12,6 @@ function Metadata(sample) {
       });
     });
   }
-
-
 function VariousCharts(sample) {
   d3.json("samples.json").then((data) => {
     // Establishing my variables to be used in the charts later
@@ -26,9 +24,7 @@ function VariousCharts(sample) {
     // Build the Bubble Chart with Plotly
     var Layout = {
       xaxis: { title: "OTU ID" },
-      hovermode: "closest",
       };
-
       var trace1 = [
       {
         // Use sample_values for the y values, in this case the values are already filtered from sample
@@ -45,11 +41,9 @@ function VariousCharts(sample) {
           }
       }
     ];
-
     Plotly.plot("bubble", trace1, Layout);
 
     //  Build the Bar Chart with Plotly
-    
     var trace2 =[
       {
         // Use otu_ids as the labels for the bar chart
@@ -66,7 +60,6 @@ function VariousCharts(sample) {
 
       }
     ];
-
     var barLayout = {
       title: "Top 10 Bacteria",
     };
@@ -75,11 +68,9 @@ function VariousCharts(sample) {
   });
 }
    
- 
 function init() {
   // Creating the dropdown element using the proper ID
   var menu = d3.select("#selDataset");
-
   // Creating the select options
   d3.json("samples.json").then((data) => {
     var DataNames = data.names;
@@ -88,19 +79,16 @@ function init() {
         .append("option")
         .text(sample)
     });
-
     // Building the initial data display with index 0
     const Sample = DataNames[0];
     VariousCharts(Sample);
     Metadata(Sample);
   });
 }
-
 function optionChanged(newSample) {
   // Retrieve new data every time a new sample is chosen
   VariousCharts(newSample);
   Metadata(newSample);
 }
-
 // Initializing
 init();
