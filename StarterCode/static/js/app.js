@@ -2,6 +2,7 @@ function Metadata(sample) {
     d3.json("samples.json").then((data) => {
       var metadata= data.metadata;
     //   Utilizing the arrow method to call on the filter function
+    // Use sample_values as the values for the bar chart
       var array= metadata.filter(sampleobject => sampleobject.id == sample);
       var result= array[0]
       var PANEL = d3.select("#sample-metadata");
@@ -9,8 +10,6 @@ function Metadata(sample) {
       Object.entries(result).forEach(([key, value]) => {
         PANEL.append("h6").text(`${key}: ${value}`);
       });
-
-    
     });
   }
 
@@ -86,16 +85,16 @@ function init() {
 
     // Building the initial plots
     const firstSample = sampleNames[0];
-    buildCharts(firstSample);
-    buildMetadata(firstSample);
+    VariousCharts(firstSample);
+    Metadata(firstSample);
   });
 }
 
 function optionChanged(newSample) {
   // Retrieve new data every time a new sample is chosen
-  buildCharts(newSample);
-  buildMetadata(newSample);
+  VariousCharts(newSample);
+  Metadata(newSample);
 }
 
-// Initialize the dashboard
+// Initializing
 init();
