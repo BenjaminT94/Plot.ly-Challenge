@@ -16,6 +16,7 @@ function Metadata(sample) {
 
 function VariousCharts(sample) {
   d3.json("samples.json").then((data) => {
+    // Establishing my variables to be used in the charts later
     var samples= data.samples;
     var array= samples.filter(sampleobject => sampleobject.id == sample);
     var result= array[0]
