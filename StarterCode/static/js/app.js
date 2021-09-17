@@ -73,7 +73,7 @@ function VariousCharts(sample) {
    
  
 function init() {
-  // Creating the dropdown element
+  // Creating the dropdown element using the proper ID
   var menu = d3.select("#selDataset");
 
   // Creating the select options
