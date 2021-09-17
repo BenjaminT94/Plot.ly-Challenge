@@ -82,8 +82,8 @@ function init() {
 
   // Creating the select options
   d3.json("samples.json").then((data) => {
-    var sampleNames = data.names;
-    sampleNames.forEach((sample) => {
+    var DataNames = data.names;
+    DataNames.forEach((sample) => {
       menu
         .append("option")
         .text(sample)
@@ -91,7 +91,7 @@ function init() {
     });
 
     // Building the initial plots
-    const Sample = sampleNames[0];
+    const Sample = DataNames[0];
     VariousCharts(Sample);
     Metadata(Sample);
   });
