@@ -31,10 +31,10 @@ function VariousCharts(sample) {
 
       var Data = [
       {
-        // Use otu_ids for the x values
-        x: ids,
         // Use sample_values for the y values, in this case the values are already filtered from sample
         y: values,
+        // Use otu_ids for the x values
+        x: ids,
         text: labels,
         mode: "markers",
         marker: {
@@ -50,7 +50,7 @@ function VariousCharts(sample) {
 
     //  Build the Bar Chart with Plotly
     
-    var bar_data =[
+    var barData =[
       {
         // Use otu_ids as the labels for the bar chart
         y:ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse(),
@@ -67,7 +67,7 @@ function VariousCharts(sample) {
       margin: { t: 30, l: 150 }
     };
 
-    Plotly.newPlot("bar", bar_data, barLayout);
+    Plotly.newPlot("bar", barData, barLayout);
   });
 }
    
