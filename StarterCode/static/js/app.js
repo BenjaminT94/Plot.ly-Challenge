@@ -41,6 +41,12 @@ function VariousCharts(sample) {
           }
       }
     ];
+    console.log(samples);
+    console.log(array);
+    console.log(result);
+    console.log(labels);
+    console.log(values);
+    console.log(ids);
     Plotly.plot("bubble", trace1, Layout);
 
     //  Build the Bar Chart with Plotly
