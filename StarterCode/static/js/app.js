@@ -7,6 +7,7 @@ function Metadata(sample) {
       var result= array[0]
       var selectsample = d3.select("#sample-metadata");
       selectsample.html("");
+      // Object.entries is a variation of the for loop where I can return a key value array
       Object.entries(result).forEach(([a, b]) => {
         selectsample.append("h5").text(`${a}: ${b}`);
       });
