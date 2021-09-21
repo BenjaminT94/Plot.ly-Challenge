@@ -7,8 +7,8 @@ function Metadata(sample) {
       var result= array[0]
       var selectsample = d3.select("#sample-metadata");
       selectsample.html("");
-      Object.entries(result).forEach(([key, value]) => {
-        selectsample.append("h5").text(`${key}: ${value}`);
+      Object.entries(result).forEach(([a, b]) => {
+        selectsample.append("h5").text(`${a}: ${b}`);
       });
     });
   }
